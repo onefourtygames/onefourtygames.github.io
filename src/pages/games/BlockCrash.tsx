@@ -15,9 +15,27 @@ const BlockCrash: React.FC = () => {
     const screenshots = [screen1, screen2, screen3, screen4];
     const features = t('block_crash_page.features.items', { returnObjects: true }) as string[];
 
+    // Keyboard Navigation
+    React.useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (selectedImage === null) return;
+
+            if (e.key === 'ArrowRight') {
+                setSelectedImage((prev) => (prev !== null ? (prev + 1) % screenshots.length : null));
+            } else if (e.key === 'ArrowLeft') {
+                setSelectedImage((prev) => (prev !== null ? (prev - 1 + screenshots.length) % screenshots.length : null));
+            } else if (e.key === 'Escape') {
+                setSelectedImage(null);
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [selectedImage, screenshots.length]);
+
     // Links (same as in games.ts, could be centralized or passed as prop if dynamic)
     const storeLinks = {
-        appStore: "https://apps.apple.com/us/app/block-crash-puzzle-game/id6740766029",
+        appStore: "https://apps.apple.com/us/app/block-crash/id6758680528",
         googlePlay: "https://play.google.com/store/apps/details?id=com.onefourtygames.blockcrash"
     };
 
