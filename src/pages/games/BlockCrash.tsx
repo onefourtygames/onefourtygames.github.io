@@ -224,40 +224,6 @@ const BlockCrash: React.FC = () => {
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
                         </button>
                     </div>
-
-                    <div
-                        className="relative max-w-full max-h-[90vh] w-auto h-auto flex flex-col items-center"
-                        onClick={(e) => e.stopPropagation()}
-                    >
-                        <img
-                            src={screenshots[selectedImage]}
-                            alt={`Screenshot ${selectedImage + 1}`}
-                            className="max-h-[80vh] md:max-h-[85vh] max-w-full rounded-lg shadow-2xl border border-white/10 select-none"
-                            onTouchStart={(e) => {
-                                const touch = e.touches[0];
-                                const currentX = touch.clientX;
-                                e.currentTarget.setAttribute('data-start-x', currentX.toString());
-                            }}
-                            onTouchEnd={(e) => {
-                                const startX = parseFloat(e.currentTarget.getAttribute('data-start-x') || '0');
-                                const endX = e.changedTouches[0].clientX;
-                                const diff = startX - endX;
-
-                                if (Math.abs(diff) > 50) { // Threshold for swipe
-                                    if (diff > 0) {
-                                        // Swipe Left -> Next
-                                        setSelectedImage((prev) => (prev !== null ? (prev + 1) % screenshots.length : null));
-                                    } else {
-                                        // Swipe Right -> Prev
-                                        setSelectedImage((prev) => (prev !== null ? (prev - 1 + screenshots.length) % screenshots.length : null));
-                                    }
-                                }
-                            }}
-                        />
-                        <div className="mt-4 text-white/50 text-sm font-medium">
-                            {selectedImage + 1} / {screenshots.length}
-                        </div>
-                    </div>
                 </div>
             )}
         </div>
