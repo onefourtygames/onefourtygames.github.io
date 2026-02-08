@@ -75,6 +75,30 @@ const resources = {
                     "android_beta": "Android (Beta)"
                 }
             },
+            "block_crash_page": {
+                "hero": {
+                    "title": "Block Crash!",
+                    "subtitle": "The ultimate puzzle challenge for your mind.",
+                    "download_text": "Available now on iOS and Android"
+                },
+                "about": {
+                    "title": "About the Game",
+                    "desc_1": "Block Crash! reinvents the classic block puzzle genre with modern mechanics and a sleek, dark aesthetic. Test your spatial reasoning skills as you fit blocks onto the grid, clear lines, and aim for the high score.",
+                    "desc_2": "With intuitive touch controls and satisfying sound effects, it's the perfect game to pick up for a quick session or master over hours of gameplay."
+                },
+                "features": {
+                    "title": "Key Features",
+                    "items": [
+                        "Endless gameplay with increasing difficulty",
+                        "Sleek dark mode graphics",
+                        "Satisfying sound effects and haptics",
+                        "Compete for the highest score"
+                    ]
+                },
+                "gallery": {
+                    "title": "Screenshots"
+                }
+            },
             "form": {
                 "name": "Name",
                 "email": "Email",
@@ -157,6 +181,30 @@ const resources = {
                     "app_store": "App Store",
                     "google_play": "Google Play",
                     "android_beta": "Android (Beta)"
+                }
+            },
+            "block_crash_page": {
+                "hero": {
+                    "title": "Block Crash!",
+                    "subtitle": "El desafío definitivo de puzzles para tu mente.",
+                    "download_text": "Disponible ahora en iOS y Android"
+                },
+                "about": {
+                    "title": "Sobre el Juego",
+                    "desc_1": "Block Crash! reinventa el género clásico de puzzles de bloques con mecánicas modernas y una estética oscura y elegante. Pon a prueba tus habilidades de razonamiento espacial mientras encajas bloques en la cuadrícula, limpias líneas y aspiras a la puntuación más alta.",
+                    "desc_2": "Con controles táctiles intuitivos y efectos de sonido satisfactorios, es el juego perfecto para una sesión rápida o para dominar durante horas."
+                },
+                "features": {
+                    "title": "Características Principales",
+                    "items": [
+                        "Juego infinito con dificultad creciente",
+                        "Gráficos elegantes en modo oscuro",
+                        "Efectos de sonido y hápticos satisfactorios",
+                        "Compite por la puntuación más alta"
+                    ]
+                },
+                "gallery": {
+                    "title": "Capturas de Pantalla"
                 }
             },
             "form": {
