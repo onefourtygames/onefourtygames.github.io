@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Gamepad2, Rocket, Code2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Home: React.FC = () => {
     const { t } = useTranslation();
@@ -20,9 +21,9 @@ const Home: React.FC = () => {
                 </p>
 
                 <div className="pt-8 flex justify-center gap-6">
-                    <button className="px-8 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-lg hover:shadow-[0_0_20px_rgba(6,182,212,0.5)] transition-all transform hover:-translate-y-1 flex items-center gap-2">
+                    <Link to="/games" className="px-8 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-lg hover:shadow-[0_0_20px_rgba(6,182,212,0.5)] transition-all transform hover:-translate-y-1 flex items-center gap-2">
                         <Gamepad2 /> Our Games
-                    </button>
+                    </Link>
                     <button className="px-8 py-3 rounded-full border border-gray-500 bg-transparent text-white font-bold text-lg hover:border-white hover:bg-white/10 transition-all">
                         Learn More
                     </button>

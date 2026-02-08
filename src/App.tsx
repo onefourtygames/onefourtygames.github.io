@@ -7,11 +7,14 @@ import Terms from './pages/Terms';
 import Contact from './pages/Contact';
 import './i18n';
 
+import OurGames from './pages/OurGames';
+
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
+        <Route path="games" element={<OurGames />} />
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
         <Route path="privacy" element={<Privacy />} />
