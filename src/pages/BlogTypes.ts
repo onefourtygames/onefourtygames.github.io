@@ -1,10 +1,15 @@
+export type LocalizedContent = {
+    en: string;
+    es: string;
+};
+
 export interface BlogPost {
     slug: string;
-    title: string;
+    title: LocalizedContent;
     date: string; // ISO format: YYYY-MM-DD
-    summary: string;
+    summary: LocalizedContent;
     author: string;
     image?: string; // Feature image URL
     tags: string[];
-    contentPath: string; // Path to markdown file (relative to public/ or src literal)
+    contentPath: LocalizedContent; // Path to markdown file (relative to public/ or src literal)
 }

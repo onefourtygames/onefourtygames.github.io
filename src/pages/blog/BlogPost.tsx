@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import ReactMarkdown from 'react-markdown';
 import { BLOG_POSTS } from '../../data/blog-posts';
 import SeoHead from '../../components/SeoHead';
@@ -7,13 +8,19 @@ import { ArrowLeft } from 'lucide-react';
 
 const BlogPost: React.FC = () => {
     const { slug } = useParams<{ slug: string }>();
+    const { i18n } = useTranslation();
+    const currentLang = i18n.language.startsWith('es') ? 'es' : 'en';
+
+    // Find post
     const post = BLOG_POSTS.find((p) => p.slug === slug);
     const [content, setContent] = useState<string>('');
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         if (post) {
-            fetch(post.contentPath)
+            setLoading(true);
+            const path = post.contentPath[currentLang];
+            fetch(path)
                 .then((res) => {
                     if (!res.ok) throw new Error('Failed to load post');
                     return res.text();
@@ -24,7 +31,7 @@ const BlogPost: React.FC = () => {
         } else {
             setLoading(false);
         }
-    }, [post]);
+    }, [post, currentLang]);
 
     if (!post) {
         return (
@@ -38,12 +45,13 @@ const BlogPost: React.FC = () => {
     return (
         <div className="pt-24 min-h-screen container mx-auto px-4 pb-20 max-w-4xl">
             <SeoHead
-                titleKey={post.title}
+                titleKey={post.title[currentLang]}
                 useRawTitle={true}
-                descriptionKey={post.summary}
+                descriptionKey={post.summary[currentLang]}
                 useRawDescription={true}
                 type="article"
                 keywords={post.tags}
+                image={post.image}
             />
 
             <Link to="/blog" className="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors mb-8">
@@ -51,7 +59,18 @@ const BlogPost: React.FC = () => {
             </Link>
 
             <article className="prose prose-invert prose-lg max-w-none">
-                {/* Header */}
+                {/* Header Feature Image */}
+                {post.image && (
+                    <div className="mb-8 rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                        <img
+                            src={post.image}
+                            alt={post.title[currentLang]}
+                            className="w-full h-auto object-cover max-h-[400px]"
+                        />
+                    </div>
+                )}
+
+                {/* Header Text */}
                 <header className="mb-12 border-b border-white/10 pb-8">
                     <div className="flex gap-2 mb-4">
                         {post.tags.map(tag => (
@@ -60,7 +79,9 @@ const BlogPost: React.FC = () => {
                             </span>
                         ))}
                     </div>
-                    <h1 className="mb-4 text-4xl md:text-5xl font-extrabold">{post.title}</h1>
+                    <h1 className="mb-4 text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
+                        {post.title[currentLang]}
+                    </h1>
                     <div className="text-gray-400">
                         By <span className="text-white font-medium">{post.author}</span> • {post.date}
                     </div>
