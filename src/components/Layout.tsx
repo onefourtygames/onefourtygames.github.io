@@ -38,8 +38,8 @@ const Layout: React.FC = () => {
                                 <Link to="/games" className="nav-link px-3 py-2 rounded-md font-medium">Games</Link>
                                 <Link to="/about" className="nav-link px-3 py-2 rounded-md font-medium">{t('about')}</Link>
                                 <Link to="/contact" className="nav-link px-3 py-2 rounded-md font-medium">{t('contact')}</Link>
-                                <button onClick={toggleLanguage} className="flex items-center gap-2 text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                                    <Globe size={18} />
+                                <button onClick={toggleLanguage} className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-sm hover:shadow-[0_0_10px_rgba(6,182,212,0.5)] transition-all transform hover:-translate-y-0.5">
+                                    <Globe size={16} />
                                     <span>{i18n.language.toUpperCase()}</span>
                                 </button>
                             </div>
@@ -66,7 +66,7 @@ const Layout: React.FC = () => {
                             <Link to="/games" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium" onClick={() => setIsMenuOpen(false)}>Games</Link>
                             <Link to="/about" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium" onClick={() => setIsMenuOpen(false)}>{t('about')}</Link>
                             <Link to="/contact" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium" onClick={() => setIsMenuOpen(false)}>{t('contact')}</Link>
-                            <button onClick={() => { toggleLanguage(); setIsMenuOpen(false); }} className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium flex items-center gap-2">
+                            <button onClick={() => { toggleLanguage(); setIsMenuOpen(false); }} className="mt-2 w-full flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-base hover:shadow-[0_0_10px_rgba(6,182,212,0.5)] transition-all">
                                 <Globe size={18} /> {i18n.language.toUpperCase()}
                             </button>
                         </div>
