@@ -1,8 +1,10 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { GAMES } from '../data/games';
 import { Download, Smartphone } from 'lucide-react';
 
 const OurGames: React.FC = () => {
+    const { t } = useTranslation();
 
     return (
         <div className="animate-fade-in space-y-12">
@@ -29,7 +31,7 @@ const OurGames: React.FC = () => {
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
                                 <div>
                                     <span className="text-xs font-bold px-2 py-1 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
-                                        {game.genre}
+                                        {game.genreKey}
                                     </span>
                                 </div>
                             </div>
@@ -40,7 +42,7 @@ const OurGames: React.FC = () => {
                                 {game.title}
                             </h3>
                             <p className="text-gray-400 text-sm line-clamp-3">
-                                {game.description}
+                                {t(game.descriptionKey)}
                             </p>
 
                             <div className="flex flex-wrap gap-2 pt-2">

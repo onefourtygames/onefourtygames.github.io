@@ -5,14 +5,76 @@ import { initReactI18next } from 'react-i18next';
 const resources = {
     en: {
         translation: {
-            "home": "Home",
-            "about": "About Us",
-            "privacy": "Privacy Policy",
-            "terms": "Terms of Use",
-            "contact": "Contact",
-            "welcome": "Creating the next generation of games.",
-            "first_game": "Our First Game",
-            "rights": "All rights reserved.",
+            "nav": {
+                "home": "Home",
+                "games": "Our Games",
+                "services": "Services",
+                "about": "About Us",
+                "contact": "Contact"
+            },
+            "footer": {
+                "privacy": "Privacy Policy",
+                "terms": "Terms of Use",
+                "rights": "All rights reserved."
+            },
+            "home": {
+                "welcome": "Creating the next generation of games.",
+                "hero_subtitle": "We craft digital experiences where logic meets creativity.",
+                "cta_games": "Our Games",
+                "cta_build": "Build With Us",
+                "features": {
+                    "innovation": {
+                        "title": "Innovation",
+                        "desc": "Pushing boundaries with unique mechanics."
+                    },
+                    "technology": {
+                        "title": "Technology",
+                        "desc": "Built with the latest tech for smooth performance."
+                    },
+                    "passion": {
+                        "title": "Passion",
+                        "desc": "Games made by gamers, for gamers."
+                    }
+                }
+            },
+            "services": {
+                "hero_title": "Build With Us",
+                "hero_subtitle": "Turn your ideas into digital reality. We design, develop, and launch premium games and applications for visionary clients.",
+                "items": {
+                    "game_dev": {
+                        "title": "Game Development",
+                        "desc": "We build immersive gaming experiences using Unity, Godot, and Web technologies (Phaser, React). From casual mobile games to complex mechanics.",
+                        "features": ["Mobile & Web Games", "Unity & Godot Experts", "Multiplayer Integration", "Game Design & Polish"]
+                    },
+                    "app_dev": {
+                        "title": "App Development",
+                        "desc": "Custom mobile and web applications tailored to your business needs. We specialize in React Native, iOS, and Android development.",
+                        "features": ["Cross-platform (React Native)", "Native iOS & Android", "Progressive Web Apps", "UI/UX Design"]
+                    },
+                    "consulting": {
+                        "title": "Consulting & Strategy",
+                        "desc": "Already have a project? We help you optimize performance, improve monetization strategies, and refine user retention.",
+                        "features": ["Technical Audit", "Monetization Strategy", "Performance Optimization", "Market Analysis"]
+                    }
+                },
+                "cta": {
+                    "title": "Ready to start your project?",
+                    "text": "Let's collaborate to build something extraordinary. Contact us today for a free consultation.",
+                    "button": "Get into Contact"
+                }
+            },
+            "games_page": {
+                "title": "Our Games",
+                "subtitle": "Explore our collection of immersive and challenging experiences.",
+                "block_crash": {
+                    "desc": "Block Crash! is an addictive puzzle game that challenges your spatial reasoning. Fit blocks together, clear lines, and beat your high score in this vibrant and engaging experience. Designed for puzzle lovers of all ages."
+                },
+                "links": {
+                    "app_store": "App Store",
+                    "google_play": "Google Play",
+                    "android_beta": "Android (Beta)"
+                }
+            },
             "form": {
                 "name": "Name",
                 "email": "Email",
@@ -27,14 +89,76 @@ const resources = {
     },
     es: {
         translation: {
-            "home": "Inicio",
-            "about": "Sobre Nosotros",
-            "privacy": "Política de Privacidad",
-            "terms": "Términos de Uso",
-            "contact": "Contacto",
-            "welcome": "Creando la próxima generación de videojuegos.",
-            "first_game": "Nuestro Primer Juego",
-            "rights": "Todos los derechos reservados.",
+            "nav": {
+                "home": "Inicio",
+                "games": "Juegos",
+                "services": "Servicios",
+                "about": "Sobre Nosotros",
+                "contact": "Contacto"
+            },
+            "footer": {
+                "privacy": "Política de Privacidad",
+                "terms": "Términos de Uso",
+                "rights": "Todos los derechos reservados."
+            },
+            "home": {
+                "welcome": "Creando la próxima generación de videojuegos.",
+                "hero_subtitle": "Creamos experiencias digitales donde la lógica se encuentra con la creatividad.",
+                "cta_games": "Nuestros Juegos",
+                "cta_build": "Trabaja con Nosotros",
+                "features": {
+                    "innovation": {
+                        "title": "Innovación",
+                        "desc": "Superando límites con mecánicas únicas."
+                    },
+                    "technology": {
+                        "title": "Tecnología",
+                        "desc": "Construido con la última tecnología para un rendimiento fluido."
+                    },
+                    "passion": {
+                        "title": "Pasión",
+                        "desc": "Juegos hechos por gamers, para gamers."
+                    }
+                }
+            },
+            "services": {
+                "hero_title": "Construye con Nosotros",
+                "hero_subtitle": "Convierte tus ideas en realidad digital. Diseñamos, desarrollamos y lanzamos juegos y aplicaciones premium para clientes visionarios.",
+                "items": {
+                    "game_dev": {
+                        "title": "Desarrollo de Videojuegos",
+                        "desc": "Creamos experiencias de juego inmersivas usando Unity, Godot y tecnologías Web (Phaser, React). Desde juegos móviles casuales hasta mecánicas complejas.",
+                        "features": ["Juegos Móviles y Web", "Expertos en Unity y Godot", "Integración Multijugador", "Diseño y Pulido de Juegos"]
+                    },
+                    "app_dev": {
+                        "title": "Desarrollo de Apps",
+                        "desc": "Aplicaciones móviles y web personalizadas adaptadas a las necesidades de tu negocio. Nos especializamos en React Native, desarrollo iOS y Android.",
+                        "features": ["Multiplataforma (React Native)", "Nativo iOS y Android", "Web Apps Progresivas", "Diseño UI/UX"]
+                    },
+                    "consulting": {
+                        "title": "Consultoría y Estrategia",
+                        "desc": "¿Ya tienes un proyecto? Te ayudamos a optimizar el rendimiento, mejorar estrategias de monetización y refinar la retención de usuarios.",
+                        "features": ["Auditoría Técnica", "Estrategia de Monetización", "Optimización de Rendimiento", "Análisis de Mercado"]
+                    }
+                },
+                "cta": {
+                    "title": "¿Listo para empezar tu proyecto?",
+                    "text": "Colaboremos para construir algo extraordinario. Contáctanos hoy para una consulta gratuita.",
+                    "button": "Ponte en Contacto"
+                }
+            },
+            "games_page": {
+                "title": "Nuestros Juegos",
+                "subtitle": "Explora nuestra colección de experiencias inmersivas y desafiantes.",
+                "block_crash": {
+                    "desc": "¡Block Crash! es un adictivo juego de puzzles que desafía tu razonamiento espacial. Encaja bloques, limpia líneas y supera tu puntuación más alta en esta experiencia vibrante y atractiva. Diseñado para amantes de los puzzles de todas las edades."
+                },
+                "links": {
+                    "app_store": "App Store",
+                    "google_play": "Google Play",
+                    "android_beta": "Android (Beta)"
+                }
+            },
             "form": {
                 "name": "Nombre",
                 "email": "Correo Electrónico",
@@ -42,7 +166,8 @@ const resources = {
                 "send": "Enviar Mensaje",
                 "sending": "Enviando...",
                 "success": "¡Mensaje enviado con éxito!",
-                "error": "Error al enviar el mensaje."
+                "error": "Error al enviar el mensaje.",
+                "demo": "(Demo: Esto abre tu cliente de correo. Para usarlo sin cliente, configura Formspree.)"
             }
         }
     }
@@ -52,7 +177,7 @@ i18n
     .use(initReactI18next)
     .init({
         resources,
-        lng: "es", // Default language (Spanish as per user request implied by 'Ingles y castellano')
+        lng: "es", // Default language
         fallbackLng: "en",
         interpolation: {
             escapeValue: false

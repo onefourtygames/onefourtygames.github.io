@@ -34,10 +34,11 @@ const Layout: React.FC = () => {
                         {/* Desktop Menu */}
                         <div className="hidden md:block">
                             <div className="ml-10 flex items-baseline space-x-8">
-                                <Link to="/" className="nav-link px-3 py-2 rounded-md font-medium">{t('home')}</Link>
-                                <Link to="/games" className="nav-link px-3 py-2 rounded-md font-medium">Games</Link>
-                                <Link to="/about" className="nav-link px-3 py-2 rounded-md font-medium">{t('about')}</Link>
-                                <Link to="/contact" className="nav-link px-3 py-2 rounded-md font-medium">{t('contact')}</Link>
+                                <Link to="/" className="nav-link px-3 py-2 rounded-md font-medium">{t('nav.home')}</Link>
+                                <Link to="/games" className="nav-link px-3 py-2 rounded-md font-medium">{t('nav.games')}</Link>
+                                <Link to="/services" className="nav-link px-3 py-2 rounded-md font-medium">{t('nav.services')}</Link>
+                                <Link to="/about" className="nav-link px-3 py-2 rounded-md font-medium">{t('nav.about')}</Link>
+                                <Link to="/contact" className="nav-link px-3 py-2 rounded-md font-medium">{t('nav.contact')}</Link>
                                 <button onClick={toggleLanguage} className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-sm hover:shadow-[0_0_10px_rgba(6,182,212,0.5)] transition-all transform hover:-translate-y-0.5">
                                     <Globe size={16} />
                                     <span>{i18n.language.toUpperCase()}</span>
@@ -62,10 +63,11 @@ const Layout: React.FC = () => {
                 {isMenuOpen && (
                     <div className="md:hidden glass-panel mt-2 mx-2 rounded-lg absolute w-[calc(100%-1rem)]">
                         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center">
-                            <Link to="/" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium" onClick={() => setIsMenuOpen(false)}>{t('home')}</Link>
-                            <Link to="/games" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium" onClick={() => setIsMenuOpen(false)}>Games</Link>
-                            <Link to="/about" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium" onClick={() => setIsMenuOpen(false)}>{t('about')}</Link>
-                            <Link to="/contact" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium" onClick={() => setIsMenuOpen(false)}>{t('contact')}</Link>
+                            <Link to="/" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium" onClick={() => setIsMenuOpen(false)}>{t('nav.home')}</Link>
+                            <Link to="/games" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium" onClick={() => setIsMenuOpen(false)}>{t('nav.games')}</Link>
+                            <Link to="/services" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium" onClick={() => setIsMenuOpen(false)}>{t('nav.services')}</Link>
+                            <Link to="/about" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium" onClick={() => setIsMenuOpen(false)}>{t('nav.about')}</Link>
+                            <Link to="/contact" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium" onClick={() => setIsMenuOpen(false)}>{t('nav.contact')}</Link>
                             <button onClick={() => { toggleLanguage(); setIsMenuOpen(false); }} className="mt-2 w-full flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-base hover:shadow-[0_0_10px_rgba(6,182,212,0.5)] transition-all">
                                 <Globe size={18} /> {i18n.language.toUpperCase()}
                             </button>
@@ -84,11 +86,11 @@ const Layout: React.FC = () => {
                 <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                         <div className="text-gray-400 text-sm">
-                            &copy; {new Date().getFullYear()} One Fourty Games. {t('rights')}
+                            &copy; {new Date().getFullYear()} One Fourty Games. {t('footer.rights')}
                         </div>
                         <div className="flex space-x-6">
-                            <Link to="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">{t('privacy')}</Link>
-                            <Link to="/terms" className="text-gray-400 hover:text-white text-sm transition-colors">{t('terms')}</Link>
+                            <Link to="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">{t('footer.privacy')}</Link>
+                            <Link to="/terms" className="text-gray-400 hover:text-white text-sm transition-colors">{t('footer.terms')}</Link>
                         </div>
                     </div>
                 </div>
