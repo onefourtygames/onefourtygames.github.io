@@ -10,7 +10,7 @@ import screen4 from '../../assets/block-crash/4.png';
 
 const BlockCrash: React.FC = () => {
     const { t } = useTranslation();
-    const [selectedImage, setSelectedImage] = useState<string | null>(null);
+    const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
     const screenshots = [screen1, screen2, screen3, screen4];
     const features = t('block_crash_page.features.items', { returnObjects: true }) as string[];
@@ -121,7 +121,7 @@ const BlockCrash: React.FC = () => {
                             <div
                                 key={index}
                                 className="relative group cursor-pointer overflow-hidden rounded-2xl border border-white/10 aspect-[9/19] hover:border-cyan-500/50 transition-all duration-300"
-                                onClick={() => setSelectedImage(img)}
+                                onClick={() => setSelectedImage(index)}
                             >
                                 <img
                                     src={img}
@@ -138,23 +138,108 @@ const BlockCrash: React.FC = () => {
             </section>
 
             {/* Image Modal */}
-            {selectedImage && (
+            {selectedImage !== null && (
                 <div
-                    className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4"
+                    className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4 touch-none"
                     onClick={() => setSelectedImage(null)}
                 >
                     <button
-                        className="absolute top-4 right-4 text-white hover:text-cyan-400 transition-colors bg-white/10 rounded-full p-2"
+                        className="absolute top-4 right-4 text-white/50 hover:text-white transition-colors p-2 z-50"
                         onClick={() => setSelectedImage(null)}
                     >
                         <X size={32} />
                     </button>
-                    <img
-                        src={selectedImage}
-                        alt="Full size"
-                        className="max-h-[90vh] max-w-full rounded-lg shadow-2xl border border-white/10"
+
+
+
+                    <div
+                        className="relative max-w-full max-h-[90vh] w-auto h-auto flex flex-col items-center"
                         onClick={(e) => e.stopPropagation()}
-                    />
+                    >
+                        <img
+                            src={screenshots[selectedImage]}
+                            alt={`Screenshot ${selectedImage + 1}`}
+                            className="max-h-[80vh] md:max-h-[85vh] max-w-full rounded-lg shadow-2xl border border-white/10 select-none"
+                            onTouchStart={(e) => {
+                                const touch = e.touches[0];
+                                const currentX = touch.clientX;
+                                e.currentTarget.setAttribute('data-start-x', currentX.toString());
+                            }}
+                            onTouchEnd={(e) => {
+                                const startX = parseFloat(e.currentTarget.getAttribute('data-start-x') || '0');
+                                const endX = e.changedTouches[0].clientX;
+                                const diff = startX - endX;
+
+                                if (Math.abs(diff) > 50) { // Threshold for swipe
+                                    if (diff > 0) {
+                                        // Swipe Left -> Next
+                                        setSelectedImage((prev) => (prev !== null ? (prev + 1) % screenshots.length : null));
+                                    } else {
+                                        // Swipe Right -> Prev
+                                        setSelectedImage((prev) => (prev !== null ? (prev - 1 + screenshots.length) % screenshots.length : null));
+                                    }
+                                }
+                            }}
+                        />
+                        <div className="mt-4 text-white/50 text-sm font-medium">
+                            {selectedImage + 1} / {screenshots.length}
+                        </div>
+
+                        {/* Navigation Buttons (Overlaid on image or to sides) */}
+                        <button
+                            className="absolute left-2 md:-left-16 top-1/2 -translate-y-1/2 text-white/70 hover:text-white p-2 transition-colors z-[60] bg-black/50 hover:bg-black/80 rounded-full backdrop-blur-sm"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setSelectedImage((prev) => (prev !== null ? (prev - 1 + screenshots.length) % screenshots.length : null));
+                            }}
+                        >
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
+                        </button>
+
+                        <button
+                            className="absolute right-2 md:-right-16 top-1/2 -translate-y-1/2 text-white/70 hover:text-white p-2 transition-colors z-[60] bg-black/50 hover:bg-black/80 rounded-full backdrop-blur-sm"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setSelectedImage((prev) => (prev !== null ? (prev + 1) % screenshots.length : null));
+                            }}
+                        >
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
+                        </button>
+                    </div>
+
+                    <div
+                        className="relative max-w-full max-h-[90vh] w-auto h-auto flex flex-col items-center"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <img
+                            src={screenshots[selectedImage]}
+                            alt={`Screenshot ${selectedImage + 1}`}
+                            className="max-h-[80vh] md:max-h-[85vh] max-w-full rounded-lg shadow-2xl border border-white/10 select-none"
+                            onTouchStart={(e) => {
+                                const touch = e.touches[0];
+                                const currentX = touch.clientX;
+                                e.currentTarget.setAttribute('data-start-x', currentX.toString());
+                            }}
+                            onTouchEnd={(e) => {
+                                const startX = parseFloat(e.currentTarget.getAttribute('data-start-x') || '0');
+                                const endX = e.changedTouches[0].clientX;
+                                const diff = startX - endX;
+
+                                if (Math.abs(diff) > 50) { // Threshold for swipe
+                                    if (diff > 0) {
+                                        // Swipe Left -> Next
+                                        setSelectedImage((prev) => (prev !== null ? (prev + 1) % screenshots.length : null));
+                                    } else {
+                                        // Swipe Right -> Prev
+                                        setSelectedImage((prev) => (prev !== null ? (prev - 1 + screenshots.length) % screenshots.length : null));
+                                    }
+                                }
+                            }}
+                        />
+                        <div className="mt-4 text-white/50 text-sm font-medium">
+                            {selectedImage + 1} / {screenshots.length}
+                        </div>
+                    </div>
                 </div>
             )}
         </div>
