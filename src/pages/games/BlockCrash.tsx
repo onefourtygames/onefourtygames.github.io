@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { X } from 'lucide-react';
+import SeoHead from '../../components/SeoHead';
 import logo from '../../assets/block-crash/logo.png';
 // Import screenshots
 import screen1 from '../../assets/block-crash/1.png';
@@ -41,6 +42,13 @@ const BlockCrash: React.FC = () => {
 
     return (
         <div className="pt-24 min-h-screen">
+            <SeoHead
+                titleKey="block_crash_page.hero.title"
+                descriptionKey="block_crash_page.about.desc_1"
+                type="game"
+                keywords={['block puzzle', 'cube puzzle', 'tetris style', 'brain training']}
+                image="/assets/block-crash/feature.png"
+            />
             {/* Hero / Header Section */}
             <section className="relative py-20 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-cyan-900/20 z-0"></div>

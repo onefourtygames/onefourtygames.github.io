@@ -3,6 +3,7 @@ import { Link, Outlet } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Menu, X, Globe } from 'lucide-react';
 import BinaryBackground from './BinaryBackground';
+import SeoHead from './SeoHead';
 import logo from '../assets/logo.png';
 
 const Layout: React.FC = () => {
@@ -16,6 +17,7 @@ const Layout: React.FC = () => {
 
     return (
         <div className="min-h-screen text-white relative overflow-hidden font-sans">
+            <SeoHead />
             <BinaryBackground />
 
             <nav className="fixed w-full z-50 glass-panel border-b-0 rounded-none top-0">
@@ -38,6 +40,7 @@ const Layout: React.FC = () => {
                                 <Link to="/games" className="nav-link px-3 py-2 rounded-md font-medium">{t('nav.games')}</Link>
                                 <Link to="/services" className="nav-link px-3 py-2 rounded-md font-medium">{t('nav.services')}</Link>
                                 <Link to="/about" className="nav-link px-3 py-2 rounded-md font-medium">{t('nav.about')}</Link>
+                                <Link to="/blog" className="nav-link px-3 py-2 rounded-md font-medium">Blog</Link>
                                 <Link to="/contact" className="nav-link px-3 py-2 rounded-md font-medium">{t('nav.contact')}</Link>
                                 <button onClick={toggleLanguage} className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-sm hover:shadow-[0_0_10px_rgba(6,182,212,0.5)] transition-all transform hover:-translate-y-0.5">
                                     <Globe size={16} />
@@ -90,6 +93,13 @@ const Layout: React.FC = () => {
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 {t('nav.about')}
+                            </Link>
+                            <Link
+                                to="/blog"
+                                className="text-gray-100 hover:text-cyan-400 hover:bg-white/5 block px-4 py-3 rounded-lg text-lg font-bold transition-all"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                Blog
                             </Link>
                             <Link
                                 to="/contact"

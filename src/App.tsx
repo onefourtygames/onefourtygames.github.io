@@ -10,6 +10,8 @@ import './i18n';
 import OurGames from './pages/OurGames';
 import Services from './pages/Services';
 import BlockCrash from './pages/games/BlockCrash';
+import BlogIndex from './pages/blog/BlogIndex';
+import BlogPost from './pages/blog/BlogPost';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         <Route path="services" element={<Services />} />
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
+        <Route path="blog" element={<BlogIndex />} />
+        <Route path="blog/:slug" element={<BlogPost />} />
         <Route path="privacy" element={<Privacy />} />
         <Route path="terms" element={<Terms />} />
       </Route>
