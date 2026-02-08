@@ -61,15 +61,52 @@ const Layout: React.FC = () => {
 
                 {/* Mobile Menu */}
                 {isMenuOpen && (
-                    <div className="md:hidden glass-panel mt-2 mx-2 rounded-lg absolute w-[calc(100%-1rem)]">
-                        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center">
-                            <Link to="/" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium" onClick={() => setIsMenuOpen(false)}>{t('nav.home')}</Link>
-                            <Link to="/games" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium" onClick={() => setIsMenuOpen(false)}>{t('nav.games')}</Link>
-                            <Link to="/services" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium" onClick={() => setIsMenuOpen(false)}>{t('nav.services')}</Link>
-                            <Link to="/about" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium" onClick={() => setIsMenuOpen(false)}>{t('nav.about')}</Link>
-                            <Link to="/contact" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium" onClick={() => setIsMenuOpen(false)}>{t('nav.contact')}</Link>
-                            <button onClick={() => { toggleLanguage(); setIsMenuOpen(false); }} className="mt-2 w-full flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-base hover:shadow-[0_0_10px_rgba(6,182,212,0.5)] transition-all">
-                                <Globe size={18} /> {i18n.language.toUpperCase()}
+                    <div className="md:hidden bg-[#0f0c29] border border-gray-800 mt-2 mx-2 rounded-lg absolute w-[calc(100%-1rem)] shadow-2xl z-50 overflow-hidden">
+                        <div className="px-4 pt-4 pb-6 space-y-3 flex flex-col">
+                            <Link
+                                to="/"
+                                className="text-gray-100 hover:text-cyan-400 hover:bg-white/5 block px-4 py-3 rounded-lg text-lg font-bold transition-all"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                {t('nav.home')}
+                            </Link>
+                            <Link
+                                to="/games"
+                                className="text-gray-100 hover:text-cyan-400 hover:bg-white/5 block px-4 py-3 rounded-lg text-lg font-bold transition-all"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                {t('nav.games')}
+                            </Link>
+                            <Link
+                                to="/services"
+                                className="text-gray-100 hover:text-cyan-400 hover:bg-white/5 block px-4 py-3 rounded-lg text-lg font-bold transition-all"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                {t('nav.services')}
+                            </Link>
+                            <Link
+                                to="/about"
+                                className="text-gray-100 hover:text-cyan-400 hover:bg-white/5 block px-4 py-3 rounded-lg text-lg font-bold transition-all"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                {t('nav.about')}
+                            </Link>
+                            <Link
+                                to="/contact"
+                                className="text-gray-100 hover:text-cyan-400 hover:bg-white/5 block px-4 py-3 rounded-lg text-lg font-bold transition-all"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                {t('nav.contact')}
+                            </Link>
+
+                            <div className="h-px bg-gray-800 my-2"></div>
+
+                            <button
+                                onClick={() => { toggleLanguage(); setIsMenuOpen(false); }}
+                                className="w-full flex items-center justify-center gap-3 px-4 py-3 rounded-lg bg-gradient-to-r from-cyan-600 to-blue-700 text-white font-bold text-lg hover:shadow-[0_0_15px_rgba(6,182,212,0.4)] transition-all"
+                            >
+                                <Globe size={20} />
+                                {i18n.language.toUpperCase()}
                             </button>
                         </div>
                     </div>
