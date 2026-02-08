@@ -20,11 +20,11 @@ const Home: React.FC = () => {
                     {t('home.hero_subtitle')}
                 </p>
 
-                <div className="pt-8 flex justify-center gap-6">
-                    <Link to="/games" className="px-8 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-lg hover:shadow-[0_0_20px_rgba(6,182,212,0.5)] transition-all transform hover:-translate-y-1 flex items-center gap-2">
+                <div className="pt-8 flex flex-col md:flex-row justify-center gap-4 md:gap-6 w-full px-4 md:px-0">
+                    <Link to="/games" className="w-full md:w-auto px-8 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-lg hover:shadow-[0_0_20px_rgba(6,182,212,0.5)] transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2">
                         <Gamepad2 /> {t('home.cta_games')}
                     </Link>
-                    <Link to="/services" className="px-8 py-3 rounded-full border border-purple-500 bg-transparent text-white font-bold text-lg hover:bg-purple-500/20 hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all transform hover:-translate-y-1 flex items-center gap-2">
+                    <Link to="/services" className="w-full md:w-auto px-8 py-3 rounded-full border border-purple-500 bg-transparent text-white font-bold text-lg hover:bg-purple-500/20 hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2">
                         <Rocket /> {t('home.cta_build')}
                     </Link>
                 </div>
