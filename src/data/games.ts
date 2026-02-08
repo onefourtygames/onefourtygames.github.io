@@ -1,4 +1,4 @@
-import blockCrashImg from '../assets/block-crash.png';
+import blockCrashImg from '../assets/block-crash/logo.png';
 
 export interface Game {
     id: string;
