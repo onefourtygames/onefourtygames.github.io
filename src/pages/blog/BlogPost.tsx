@@ -4,6 +4,8 @@ import { useTranslation } from 'react-i18next';
 import ReactMarkdown from 'react-markdown';
 import { BLOG_POSTS } from '../../data/blog-posts';
 import SeoHead from '../../components/SeoHead';
+import LikeButton from '../../components/LikeButton';
+import ShareButtons from '../../components/ShareButtons';
 import { ArrowLeft } from 'lucide-react';
 
 const BlogPost: React.FC = () => {
@@ -61,49 +63,80 @@ const BlogPost: React.FC = () => {
             <article className="prose prose-invert prose-lg max-w-none">
                 {/* Header Feature Image */}
                 {post.image && (
-                    <div className="mb-8 rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                    <div className="mb-8 rounded-2xl overflow-hidden shadow-2xl border border-white/10 flex justify-center bg-black/50">
                         <img
                             src={post.image}
                             alt={post.title[currentLang]}
-                            className="w-full h-auto object-cover max-h-[400px]"
+                            className="w-full h-auto object-cover max-h-[500px]"
                         />
                     </div>
                 )}
 
                 {/* Header Text */}
-                <header className="mb-12 border-b border-white/10 pb-8">
-                    <div className="flex gap-2 mb-4">
+                <header className="mb-12 border-b border-white/10 pb-8 text-center">
+                    <div className="flex justify-center gap-2 mb-6">
                         {post.tags.map(tag => (
-                            <span key={tag} className="bg-cyan-900/30 text-cyan-300 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
+                            <span key={tag} className="bg-cyan-900/30 text-cyan-300 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest border border-cyan-500/20">
                                 {tag}
                             </span>
                         ))}
                     </div>
-                    <h1 className="mb-4 text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
+                    <h1 className="mb-6 text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-gray-400 leading-tight">
                         {post.title[currentLang]}
                     </h1>
-                    <div className="text-gray-400">
-                        By <span className="text-white font-medium">{post.author}</span> • {post.date}
+                    <div className="flex items-center justify-center gap-4 text-gray-400 text-sm font-medium">
+                        <span className="text-white bg-white/10 px-3 py-1 rounded-full">{post.author}</span>
+                        <span>•</span>
+                        <span>{post.date}</span>
                     </div>
                 </header>
 
                 {/* Markdown Content */}
                 {loading ? (
                     <div className="animate-pulse space-y-4">
-                        <div className="h-4 bg-white/10 rounded w-3/4"></div>
-                        <div className="h-4 bg-white/10 rounded w-1/2"></div>
-                        <div className="h-4 bg-white/10 rounded w-5/6"></div>
+                        <div className="h-4 bg-white/10 rounded w-3/4 mx-auto"></div>
+                        <div className="h-4 bg-white/10 rounded w-1/2 mx-auto"></div>
+                        <div className="h-4 bg-white/10 rounded w-5/6 mx-auto"></div>
                     </div>
                 ) : (
-                    <ReactMarkdown
-                        components={{
-                            // Override default element styles for better tailwind typography integration if needed
-                            // prose-invert class on parent handles most of this automatically
-                        }}
-                    >
-                        {content}
-                    </ReactMarkdown>
+                    <div className="blog-content">
+                        <ReactMarkdown
+                            components={{
+                                // Custom renderer for images to ensure they are centered and styled
+                                img: ({ node: _node, ...props }) => (
+                                    <figure className="my-12 flex flex-col items-center">
+                                        <div className="rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-black/30">
+                                            <img
+                                                {...props}
+                                                className="max-h-[500px] w-auto object-contain mx-auto"
+                                                loading="lazy"
+                                            />
+                                        </div>
+                                        {props.alt && (
+                                            <figcaption className="mt-3 text-center text-sm text-gray-500 italic">
+                                                {props.alt}
+                                            </figcaption>
+                                        )}
+                                    </figure>
+                                ),
+                                // Center paragraphs if they contain a single image (handled by img tag mostly, but good for safety)
+                                p: ({ node: _node, children }) => {
+                                    // Logic to check if paragraph contains only an image could go here, 
+                                    // but CSS usually handles the 'figure' centering better.
+                                    return <p className="mb-6 text-gray-300 leading-relaxed">{children}</p>;
+                                }
+                            }}
+                        >
+                            {content}
+                        </ReactMarkdown>
+                    </div>
                 )}
+
+                {/* Interaction Section */}
+                <div className="border-t border-white/10 pt-12 mt-16 flex flex-col items-center gap-8">
+                    <LikeButton slug={post.slug} />
+                    <ShareButtons title={post.title[currentLang]} url={window.location.href} />
+                </div>
             </article>
         </div>
     );

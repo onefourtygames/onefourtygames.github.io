@@ -7,7 +7,7 @@ export const BLOG_POSTS: BlogPost[] = [
             en: 'Why Mobile Puzzle Games Are Actually Good for Your Brain',
             es: 'Por qué los Juegos de Puzzles Móviles son Buenos para tu Cerebro'
         },
-        date: '2025-05-15',
+        date: '2026-01-09',
         summary: {
             en: 'Did you know that playing Block Crash can improve your cognitive functions? Discover the science behind puzzle games and brain health.',
             es: '¿Sabías que jugar a Block Crash puede mejorar tus funciones cognitivas? Descubre la ciencia detrás de los juegos de puzzles y la salud cerebral.'
