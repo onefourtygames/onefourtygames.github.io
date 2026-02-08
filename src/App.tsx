@@ -8,6 +8,7 @@ import Contact from './pages/Contact';
 import './i18n';
 
 import OurGames from './pages/OurGames';
+import Services from './pages/Services';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="games" element={<OurGames />} />
+        <Route path="services" element={<Services />} />
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
         <Route path="privacy" element={<Privacy />} />
