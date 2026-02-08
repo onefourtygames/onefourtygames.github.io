@@ -17,6 +17,12 @@ const resources = {
                 "terms": "Terms of Use",
                 "rights": "All rights reserved."
             },
+            "seo": {
+                "default": {
+                    "title": "One Fourty Games - Mobile Puzzle Games",
+                    "description": "Play Block Crash and other addictive mobile puzzle games. Train your brain with our challenging and fun experiences. Download for iOS & Android."
+                }
+            },
             "home": {
                 "welcome": "Creating the next generation of games.",
                 "hero_subtitle": "We craft digital experiences where logic meets creativity.",
@@ -124,6 +130,12 @@ const resources = {
                 "privacy": "Política de Privacidad",
                 "terms": "Términos de Uso",
                 "rights": "Todos los derechos reservados."
+            },
+            "seo": {
+                "default": {
+                    "title": "One Fourty Games - Juegos de Puzzles Móviles",
+                    "description": "Juega a Block Crash y otros adictivos juegos de puzzles para móvil. Entrena tu cerebro con nuestras experiencias desafiantes y divertidas. Descarga para iOS y Android."
+                }
             },
             "home": {
                 "welcome": "Creando la próxima generación de videojuegos.",

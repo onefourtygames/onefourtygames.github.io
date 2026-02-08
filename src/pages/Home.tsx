@@ -2,12 +2,14 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Gamepad2, Rocket, Code2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SeoHead from '../components/SeoHead';
 
 const Home: React.FC = () => {
     const { t } = useTranslation();
 
     return (
         <div className="flex flex-col items-center justify-center min-h-[80vh] text-center space-y-12">
+            <SeoHead />
             {/* Hero Section */}
             <div className="space-y-6 max-w-4xl mx-auto animate-fade-in">
                 <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight">

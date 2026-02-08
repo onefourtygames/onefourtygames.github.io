@@ -2,12 +2,18 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { GAMES } from '../data/games';
 import { Link } from 'react-router-dom';
+import SeoHead from '../components/SeoHead';
 
 const OurGames: React.FC = () => {
     const { t } = useTranslation();
 
     return (
         <div className="animate-fade-in space-y-12">
+            <SeoHead
+                titleKey="games_page.title"
+                descriptionKey="games_page.subtitle"
+                keywords={['mobile games', 'puzzle games', 'ios games', 'android games']}
+            />
             <div className="text-center space-y-4">
                 <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-600">
