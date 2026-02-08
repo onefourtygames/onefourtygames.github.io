@@ -1,10 +1,10 @@
 import React from 'react';
-// import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { Gamepad2, Smartphone, BarChart3, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Services: React.FC = () => {
-    // const { t } = useTranslation(); // Enable when ready for i18n
+    const { t } = useTranslation();
 
     const services = [
         {

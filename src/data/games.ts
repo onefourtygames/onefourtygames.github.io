@@ -3,8 +3,8 @@ import blockCrashImg from '../assets/block-crash.png';
 export interface Game {
     id: string;
     title: string;
-    description: string;
-    genre: string;
+    descriptionKey: string; // Changed from description to descriptionKey
+    genreKey: string; // Changed from genre to genreKey because genre was also English text
     platform: string[];
     images: string[];
     links: {
@@ -12,7 +12,7 @@ export interface Game {
         googlePlay?: string;
         web?: string;
     };
-    tags: string[];
+    tags: string[]; // These might need translation too, but for now let's keep them or Key them. Let's Key them.
     releaseDate?: string;
 }
 
@@ -20,8 +20,8 @@ export const GAMES: Game[] = [
     {
         id: 'block-crash',
         title: 'Block Crash!',
-        genre: 'Puzzle',
-        description: 'Block Crash! is an addictive puzzle game that challenges your spatial reasoning. Fit blocks together, clear lines, and beat your high score in this vibrant and engaging experience. Designed for puzzle lovers of all ages.',
+        genreKey: 'puzzle',
+        descriptionKey: 'games_page.block_crash.desc',
         platform: ['iOS', 'Android'],
         images: [
             blockCrashImg
@@ -30,7 +30,7 @@ export const GAMES: Game[] = [
             appStore: 'https://apps.apple.com/us/app/block-crash/id6758680528',
             googlePlay: '', // Coming soon / Beta
         },
-        tags: ['Puzzle', 'Casual', 'Strategy', 'Brain Teaser'],
+        tags: ['Puzzle', 'Casual', 'Strategy', 'Brain Teaser'], // Tags are tricky, let's leave them for now or remove if unused in i18n context
         releaseDate: '2024'
     }
 ];

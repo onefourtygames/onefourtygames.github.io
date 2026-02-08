@@ -11,21 +11,21 @@ const Home: React.FC = () => {
             {/* Hero Section */}
             <div className="space-y-6 max-w-4xl mx-auto animate-fade-in">
                 <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight">
-                    <span className="block text-white mb-2 drop-shadow-lg">{t('welcome')}</span>
+                    <span className="block text-white mb-2 drop-shadow-lg">{t('home.welcome')}</span>
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 drop-shadow-md">
                         ONE FOURTY GAMES
                     </span>
                 </h1>
                 <p className="max-w-2xl mx-auto text-xl text-gray-300 font-light">
-                    We craft digital experiences where logic meets creativity.
+                    {t('home.hero_subtitle')}
                 </p>
 
                 <div className="pt-8 flex justify-center gap-6">
                     <Link to="/games" className="px-8 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-lg hover:shadow-[0_0_20px_rgba(6,182,212,0.5)] transition-all transform hover:-translate-y-1 flex items-center gap-2">
-                        <Gamepad2 /> Our Games
+                        <Gamepad2 /> {t('home.cta_games')}
                     </Link>
                     <Link to="/services" className="px-8 py-3 rounded-full border border-purple-500 bg-transparent text-white font-bold text-lg hover:bg-purple-500/20 hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all transform hover:-translate-y-1 flex items-center gap-2">
-                        <Rocket /> Build With Us
+                        <Rocket /> {t('home.cta_build')}
                     </Link>
                 </div>
             </div>
@@ -34,18 +34,18 @@ const Home: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 w-full max-w-6xl">
                 <FeatureCard
                     icon={<Rocket className="w-8 h-8 text-cyan-400" />}
-                    title="Innovation"
-                    desc="Pushing boundaries with unique mechanics."
+                    title={t('home.features.innovation.title')}
+                    desc={t('home.features.innovation.desc')}
                 />
                 <FeatureCard
                     icon={<Code2 className="w-8 h-8 text-purple-400" />}
-                    title="Technology"
-                    desc="Built with the latest tech for smooth performance."
+                    title={t('home.features.technology.title')}
+                    desc={t('home.features.technology.desc')}
                 />
                 <FeatureCard
                     icon={<Gamepad2 className="w-8 h-8 text-pink-400" />}
-                    title="Passion"
-                    desc="Games made by gamers, for gamers."
+                    title={t('home.features.passion.title')}
+                    desc={t('home.features.passion.desc')}
                 />
             </div>
         </div>
