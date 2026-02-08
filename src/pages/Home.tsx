@@ -24,9 +24,9 @@ const Home: React.FC = () => {
                     <Link to="/games" className="px-8 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-lg hover:shadow-[0_0_20px_rgba(6,182,212,0.5)] transition-all transform hover:-translate-y-1 flex items-center gap-2">
                         <Gamepad2 /> Our Games
                     </Link>
-                    <button className="px-8 py-3 rounded-full border border-gray-500 bg-transparent text-white font-bold text-lg hover:border-white hover:bg-white/10 transition-all">
-                        Learn More
-                    </button>
+                    <Link to="/services" className="px-8 py-3 rounded-full border border-purple-500 bg-transparent text-white font-bold text-lg hover:bg-purple-500/20 hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all transform hover:-translate-y-1 flex items-center gap-2">
+                        <Rocket /> Build With Us
+                    </Link>
                 </div>
             </div>
 
