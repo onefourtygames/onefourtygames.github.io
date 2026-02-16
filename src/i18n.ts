@@ -1,5 +1,6 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import { getInitialAppLang } from './utils/lang';
 
 // Translations
 const resources = {
@@ -242,8 +243,9 @@ i18n
     .use(initReactI18next)
     .init({
         resources,
-        lng: "es", // Default language
+        lng: getInitialAppLang(),
         fallbackLng: "en",
+        supportedLngs: ["en", "es"],
         interpolation: {
             escapeValue: false
         }

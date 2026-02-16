@@ -5,14 +5,17 @@ import { Menu, X, Globe } from 'lucide-react';
 import BinaryBackground from './BinaryBackground';
 import SeoHead from './SeoHead';
 import logo from '../assets/logo.png';
+import { normalizeLang, syncLangInCurrentUrl } from '../utils/lang';
 
 const Layout: React.FC = () => {
     const { t, i18n } = useTranslation();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const currentLang = normalizeLang(i18n.language);
 
     const toggleLanguage = () => {
-        const newLang = i18n.language === 'en' ? 'es' : 'en';
-        i18n.changeLanguage(newLang);
+        const newLang = currentLang === 'en' ? 'es' : 'en';
+        syncLangInCurrentUrl(newLang);
+        void i18n.changeLanguage(newLang);
     };
 
     return (
@@ -44,7 +47,7 @@ const Layout: React.FC = () => {
                                 <Link to="/contact" className="nav-link px-3 py-2 rounded-md font-medium">{t('nav.contact')}</Link>
                                 <button onClick={toggleLanguage} className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-sm hover:shadow-[0_0_10px_rgba(6,182,212,0.5)] transition-all transform hover:-translate-y-0.5">
                                     <Globe size={16} />
-                                    <span>{i18n.language.toUpperCase()}</span>
+                                    <span>{currentLang.toUpperCase()}</span>
                                 </button>
                             </div>
                         </div>
@@ -116,7 +119,7 @@ const Layout: React.FC = () => {
                                 className="w-full flex items-center justify-center gap-3 px-4 py-3 rounded-lg bg-gradient-to-r from-cyan-600 to-blue-700 text-white font-bold text-lg hover:shadow-[0_0_15px_rgba(6,182,212,0.4)] transition-all"
                             >
                                 <Globe size={20} />
-                                {i18n.language.toUpperCase()}
+                                {currentLang.toUpperCase()}
                             </button>
                         </div>
                     </div>
